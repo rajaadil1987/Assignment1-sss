@@ -166,7 +166,7 @@ Build and run with:
 
 ```bash
 docker build -t photo-sharing-api .
-docker run --env-file .env -p 3000:3000 photo-sharing-api
+docker run --env-file .env -p 5001:5001 photo-sharing-api
 ```
 
 ## Notes

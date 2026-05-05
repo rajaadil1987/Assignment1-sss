@@ -51,15 +51,15 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: moizbukhari/media-share:latest
+          tags: rajaadil1987/scalablecom769:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
       - name: Debug - Verify Docker image
         run: |
           echo "🐳 Verifying Docker image:"
-          docker pull moizbukhari/media-share:latest
-          docker images moizbukhari/media-share
+          docker pull rajaadil1987/scalablecom769:latest
+          docker images rajaadil1987/scalablecom769
 
       # ✅ Azure secret check (safe)
       - name: Debug - Check Azure credentials
@@ -81,7 +81,7 @@ jobs:
         with:
           app-name: sharing
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          images: moizbukhari/media-share:latest
+          images: rajaadil1987/scalablecom769:latest
 
       - name: Debug - Verify deployment
         run: |
