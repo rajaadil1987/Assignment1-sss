@@ -22,7 +22,7 @@ module.exports = {
     cloudName: process.env.CLOUDINARY_CLOUD_NAME,
     apiKey: process.env.CLOUDINARY_API_KEY,
     apiSecret: process.env.CLOUDINARY_API_SECRET,
-    folder: process.env.CLOUDINARY_FOLDER 
+    folder: process.env.CLOUDINARY_FOLDER
   },
   redisUrl: process.env.REDIS_URL || '',
   redisHost: process.env.REDIS_HOST,
