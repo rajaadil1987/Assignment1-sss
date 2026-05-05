@@ -1,4 +1,4 @@
-name: Deploy to Azure Container Web App
+name: CD SSS1
 
 on:
   push:
@@ -16,13 +16,13 @@ jobs:
 
       - name: Debug - Show workspace contents
         run: |
-          echo "📁 Current workspace contents:"
+          echo " Current workspace contents:"
           ls -la
           echo ""
-          echo "🐳 Dockerfile contents:"
+          echo " Dockerfile contents:"
           cat Dockerfile
           echo ""
-          echo "📦 Package.json contents:"
+          echo "Package.json contents:"
           cat package.json
 
       - name: Set up Docker Buildx
@@ -30,7 +30,7 @@ jobs:
 
       - name: Debug - Docker Buildx info
         run: |
-          echo "🔧 Docker Buildx info:"
+          echo " Docker Buildx info:"
           docker buildx version
           docker buildx ls
 
@@ -42,7 +42,7 @@ jobs:
 
       - name: Debug - Verify Docker login
         run: |
-          echo "🔐 Docker login verification:"
+          echo " Docker login verification:"
           docker info | grep Username || true
 
       - name: Build and push Docker image
@@ -57,25 +57,23 @@ jobs:
 
       - name: Debug - Verify Docker image
         run: |
-          echo "🐳 Verifying Docker image:"
+          echo " Verifying Docker image:"
           docker pull rajaadil1987/scalablecom769:latest
           docker images rajaadil1987/scalablecom769
 
-      # ✅ Azure secret check (safe)
       - name: Debug - Check Azure credentials
         env:
           AZURE_PUBLISH_PROFILE: ${{ secrets.AZURE_PUBLISH_PROFILE }}
         run: |
-          echo "🔑 Checking Azure credentials..."
+          echo " Checking Azure credentials..."
 
           if [ -z "$AZURE_PUBLISH_PROFILE" ]; then
-            echo "❌ AZURE_PUBLISH_PROFILE is missing"
+            echo " AZURE_PUBLISH_PROFILE is missing"
             exit 1
           else
-            echo "✅ AZURE_PUBLISH_PROFILE is set"
+            echo "AZURE_PUBLISH_PROFILE is set"
           fi
 
-      # 🚀 ONLY deployment step
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
@@ -85,5 +83,5 @@ jobs:
 
       - name: Debug - Verify deployment
         run: |
-          echo "🚀 Deployment completed successfully"
+          echo " Deployment completed successfully"
           echo "Web App: sss-ass1"
