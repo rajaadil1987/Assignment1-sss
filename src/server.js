@@ -33,7 +33,7 @@ async function startServer() {
     }
     // Start the server
   } catch (error) {
-    console.error('❌ Startup failed:', error.message);
+    console.error('Startup failed:_____________', error.message);
     process.exit(1);
   }
 }
