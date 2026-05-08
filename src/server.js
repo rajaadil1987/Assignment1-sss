@@ -15,7 +15,7 @@ async function startServer() {
     // Connect to database first
     console.log('📦 Connecting to database...');
     await connectDatabase();
-    console.log('✅ Database connected successfully');
+    console.log('Database connected successfully ...,here we goo');
 
     // Validate Redis connection
     console.log(' Validating Redis connection...');
